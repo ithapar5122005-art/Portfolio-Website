@@ -42,26 +42,29 @@ const Skills = () => (
             <div className="grid grid-cols-2 sm:grid-cols-3 gap-3 w-full">
               {category.skills.map((skill) => {
                 const isJavaScript = skill.name === "JavaScript";
+                const isMongoDB = skill.name === "MongoDB";
 
                 return (
                   <div
                     key={skill.name}
-                    className="flex items-center justify-center space-x-2 bg-transparent border-2 border-gray-700 rounded-3xl py-2 px-2 sm:py-2 sm:px-2 text-center"
+                    className="flex items-center justify-center gap-2 bg-transparent border-2 border-gray-700 rounded-3xl py-2 px-2 sm:px-3 text-center"
                   >
                     <img
                       src={skill.logo}
                       alt={`${skill.name} logo`}
                       className={`${
                         isJavaScript
-                          ? "w-7 h-7 sm:w-5 sm:h-8"
-                          : "w-6 h-6 sm:w-7 sm:h-7"
+                          ? "w-5 h-5 sm:w-6 sm:h-6 object-contain"
+                          : isMongoDB
+                            ? "w-5 h-4 sm:w-6 sm:h-5 object-contain"
+                            : "w-5 h-5 sm:w-6 sm:h-6 object-contain"
                       }`}
                       style={{
                         filter:
                           "brightness(1.2) saturate(1.8) drop-shadow(0 0 2px rgba(59,130,246,0.5))",
                       }}
                     />
-                    <span className="text-xs sm:text-sm text-gray-300">
+                    <span className="text-[10px] sm:text-xs text-gray-300 leading-none">
                       {skill.name}
                     </span>
                   </div>
