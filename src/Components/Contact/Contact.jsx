@@ -17,10 +17,10 @@ const Contact = () => {
 
     emailjs
       .sendForm(
-        "service_axbtt7a",
-        "template_1ziboq3",
+        "service_wezz3at",
+        "template_e4pgdj4",
         form.current,
-        "Rz7W9pVF0HdDryNNL",
+        "G5HH1mvsbgoQPGoUz",
       )
       .then(
         () => {
@@ -86,14 +86,14 @@ const Contact = () => {
         >
           <input
             type="email"
-            name="from_email"
+            name="user_email"
             placeholder="Your Email"
             required
             className="w-full p-3 rounded-md bg-[#131025] text-white border border-gray-600 focus:outline-none focus:border-purple-500"
           />
           <input
             type="text"
-            name="from_name"
+            name="user_name"
             placeholder="Your Name"
             required
             className="w-full p-3 rounded-md bg-[#131025] text-white border border-gray-600 focus:outline-none focus:border-purple-500"
