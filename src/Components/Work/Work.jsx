@@ -9,11 +9,8 @@ const Work = () => {
         </h2>
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
           {projects.map((project) => (
-            <a
+            <div
               key={project.id}
-              href={project.webapp}
-              target="_blank"
-              rel="noopener noreferrer"
               className="group block bg-gradient-to-br from-blue-900/20 to-blue-950/20 border border-blue-500/30 rounded-lg overflow-hidden hover:border-blue-500/60 transition"
             >
               <img
@@ -39,15 +36,25 @@ const Work = () => {
                   ))}
                 </div>
                 <div className="flex gap-3">
-                  <span className="text-blue-400 hover:text-blue-300 text-sm font-medium">
+                  <a
+                    href={project.github}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="text-blue-400 hover:text-blue-300 text-sm font-medium"
+                  >
                     GitHub
-                  </span>
-                  <span className="text-blue-500 hover:text-blue-400 text-sm font-medium">
+                  </a>
+                  <a
+                    href={project.webapp}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="text-blue-500 hover:text-blue-400 text-sm font-medium"
+                  >
                     Live Demo
-                  </span>
+                  </a>
                 </div>
               </div>
-            </a>
+            </div>
           ))}
         </div>
       </div>
