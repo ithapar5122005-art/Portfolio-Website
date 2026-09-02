@@ -35,6 +35,10 @@ const Contact = () => {
             draggable: true,
             theme: "dark",
           });
+          // Reset isSent after 3 seconds
+          setTimeout(() => {
+            setIsSent(false);
+          }, 3000);
         },
         (error) => {
           console.error("Error sending message:", error);
