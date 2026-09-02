@@ -1,0 +1,135 @@
+import { useRef, useState, useEffect } from "react";
+import emailjs from "@emailjs/browser";
+import { ToastContainer, toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
+
+const Contact = () => {
+  const form = useRef();
+  const [isSent, setIsSent] = useState(false);
+
+  useEffect(() => {
+    emailjs.init("Rz7W9pVF0HdDryNNL");
+  }, []);
+
+  const sendEmail = (e) => {
+    e.preventDefault();
+    setIsSent(false);
+
+    emailjs
+      .sendForm(
+        "service_axbtt7a",
+        "template_1ziboq3",
+        form.current,
+        "Rz7W9pVF0HdDryNNL",
+      )
+      .then(
+        () => {
+          setIsSent(true);
+          form.current.reset(); // Reset form fields after sending
+          toast.success("Message sent successfully! ✅", {
+            position: "top-right",
+            autoClose: 3000,
+            hideProgressBar: false,
+            closeOnClick: true,
+            pauseOnHover: true,
+            draggable: true,
+            theme: "dark",
+          });
+        },
+        (error) => {
+          console.error("Error sending message:", error);
+          toast.error("Failed to send message. Please try again.", {
+            position: "top-right",
+            autoClose: 3000,
+            hideProgressBar: false,
+            closeOnClick: true,
+            pauseOnHover: true,
+            draggable: true,
+            theme: "dark",
+          });
+        },
+      );
+  };
+
+  return (
+    <section
+      id="contact"
+      className="flex flex-col items-center justify-center py-24 px-4 sm:px-6 md:px-[7vw] lg:px-[20vw]"
+    >
+      {/* Toast Container */}
+      <ToastContainer />
+
+      {/* Section Title */}
+      <div className="text-center mb-16 px-2">
+        <h2 className="text-3xl sm:text-4xl font-bold text-white">CONTACT</h2>
+        <div className="w-24 sm:w-32 h-1 bg-blue-500 mx-auto mt-4"></div>
+        <p className="text-gray-400 mt-4 text-base sm:text-lg font-semibold">
+          I’d love to hear from you—reach out for any opportunities or
+          questions!
+        </p>
+      </div>
+
+      {/* Contact Form */}
+      <div className="mt-8 w-full max-w-md bg-[#0d081f] p-4 sm:p-6 rounded-lg shadow-lg border border-gray-700">
+        <h3 className="text-lg sm:text-xl font-semibold text-white text-center">
+          Connect With Me <span className="ml-1">🚀</span>
+        </h3>
+
+        <form
+          ref={form}
+          onSubmit={sendEmail}
+          className="mt-4 flex flex-col space-y-4"
+        >
+          <input
+            type="email"
+            name="from_email"
+            placeholder="Your Email"
+            required
+            className="w-full p-3 rounded-md bg-[#131025] text-white border border-gray-600 focus:outline-none focus:border-purple-500"
+          />
+          <input
+            type="text"
+            name="from_name"
+            placeholder="Your Name"
+            required
+            className="w-full p-3 rounded-md bg-[#131025] text-white border border-gray-600 focus:outline-none focus:border-purple-500"
+          />
+          <input
+            type="text"
+            name="subject"
+            placeholder="Subject"
+            required
+            className="w-full p-3 rounded-md bg-[#131025] text-white border border-gray-600 focus:outline-none focus:border-purple-500"
+          />
+          <textarea
+            name="message"
+            placeholder="Message"
+            rows="4"
+            required
+            className="w-full p-3 rounded-md bg-[#131025] text-white border border-gray-600 focus:outline-none focus:border-purple-500"
+          />
+
+          {/* Send Button */}
+          <button
+            type="submit"
+            disabled={isSent}
+            className={`w-full py-3 text-white font-semibold rounded-md transition ${
+              isSent
+                ? "bg-green-600 cursor-default"
+                : "bg-gradient-to-r from-blue-600 to-blue-500 hover:opacity-90"
+            }`}
+          >
+            {isSent ? "Sent ✅" : "Send"}
+          </button>
+          {isSent && (
+            <p className="text-center text-green-400 text-sm">
+              Your message has been sent successfully.
+            </p>
+          )}
+        </form>
+      </div>
+    </section>
+  );
+};
+
+export default Contact;
