@@ -8,7 +8,8 @@ const lpsLogo =
   "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT1FpvgWYjNtdxMv3o9ni3niKlz2bnEsFYzXIGv6XY4-Q&s=10";
 
 // Project Section Logo's
-import githubdetLogo from "./assets/work_logo/github_det.png";
+const githubdetLogo =
+  "https://cdn.prod.website-files.com/609ec9154a0cbc7233d06a48/630628b7b6ec2d579773f02e_twitter_hkPXu5Vq_400x400.jpg";
 
 export const SkillsInfo = [
   {
@@ -96,7 +97,7 @@ export const education = [
     school: "Dr Akhilesh Das Gupta Institute of Professional Studies, Delhi",
     university: "GGSIPU, Delhi",
     date: " 2024- 2028",
-    CGPA : "7.46",
+    CGPA: "7.46",
     desc: "I am currently pursuing my B.Tech in Computer Science from Dr Akhilesh Das Gupta Institute of Professional Studies, Delhi, affiliated with Guru Gobind Singh Indraprastha University (GGSIPU).",
     degree: "Btech in Computer Science",
   },
@@ -128,9 +129,8 @@ export const projects = [
       "A powerful and user-friendly React.js application designed to uncover and showcase detailed profile information. ",
     image: githubdetLogo,
     tags: ["HTML", "Tailwind CSS", "JavaScript", "React JS", "API"],
-    github:
-      "https://github.com/codingmastr/GitHub-Profile-Search-App-Using-React-JS",
-    webapp: "https://githubprofiledetective.netlify.app/",
+    github: "https://github.com/ithapar5122005-art/Portfolio-Website",
+    webapp: "https://portfolio-website-lemon-mu-34.vercel.app/",
   },
   // {
   //   id: 1,
